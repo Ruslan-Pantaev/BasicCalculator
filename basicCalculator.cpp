@@ -11,7 +11,7 @@ Date:	10/27/2016
 #include <cstdio> //for system("cls"); clear screen
 using namespace std;
 
-ofstream fout;
+ofstream fout; //for logging session
 const int width = 15;
 
 void printMenu();
@@ -23,11 +23,11 @@ void header();
 
 int main() {
 	char mathFunc = ' ';
-	char refresh = ' '; //could be any letter, except trailer value 'Q'
+	char refresh = ' '; //could be any letter, except trailer value 'n'
 	double 	op1, op2, result = 0.0;
 	fout.open("mathData.txt");
 
-	header();
+	header(); //prints header for output and .txt log
 
 	do {
 		printMenu();
@@ -95,7 +95,7 @@ int main() {
 					<< left << setw(width) << result << endl;
 		}
 
-		cout << "Continue? (y/n): "; //ok as long as user enters any single int
+		cout << "Continue? (y/n): "; //ok as long as user enters any single char
 		cin >> refresh; //system("PAUSE") prob. makes more sense here...
 	
 	} while (refresh != 'n');
